@@ -36,6 +36,7 @@ app.get('/', (req, res) => {
 // Definir rutas
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api', require('./routes/protectedRoute')); // Añadir la ruta protegida
+app.use('/api', require('./routes/productRoutes')); // Añadir la ruta de productos
 
 const PORT = process.env.PORT || 4000;
 

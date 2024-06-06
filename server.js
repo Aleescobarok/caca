@@ -1,20 +1,19 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const dotenv = require('dotenv');
-const path = require('path');
-
-// Configura dotenv para usar variables de entorno desde el archivo .env en la carpeta env
-dotenv.config({ path: path.join(__dirname, 'env', '.env') });
 
 const app = express();
 
+// Cargar variables de entorno directamente (solución temporal)
+const MONGO_URI = 'mongodb+srv://aescobararena:iu68chZpQEt3jbuB@aleescobarok.xdvarcm.mongodb.net/mydatabase?retryWrites=true&w=majority&appName=aleescobarok';
+const JWT_SECRET = 'mysecretkey';
+
 // Verificar que la variable de entorno MONGO_URI esté definida
-if (!process.env.MONGO_URI) {
+if (!MONGO_URI) {
     throw new Error('Falta la variable de entorno MONGO_URI');
 }
 
 // Conectar a la base de datos
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect(MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })

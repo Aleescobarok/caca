@@ -2,8 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
-// Configura dotenv para usar variables de entorno
-dotenv.config();
+// Configura dotenv para usar variables de entorno desde el archivo .env en la carpeta env
+dotenv.config({ path: './env/.env' });
 
 const app = express();
 
